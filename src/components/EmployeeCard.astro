@@ -1,7 +1,11 @@
 ---
+import "../styles/global.css";
+
+// fetche json employee data
 const employeeData = await fetch("https://raw.githubusercontent.com/ceciliejadach/frontend-design/main/resources/json/employees.json").then((res) => res.json());
 
 import type { ImageMetadata } from "astro";
+import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
 const { employee } = Astro.props;
@@ -17,17 +21,64 @@ const image = await imageImport();
 
 <a href={`/singleview/${employee.slug}`}>
   <article>
-    <div>
+    <div class="picture">
       <Image src={image.default} alt={name} />
-      <h2>{employee.name}</h2>
       <p>{employee.title}</p>
+    </div>
+    <div>
+      <h5>{employee.name}</h5>
       <p>{employee.description}</p>
+    </div>
+    <div>
+      <Icon name="instagram" />
+      <Icon name="facebook" />
+      <Icon name="twitter" />
     </div>
   </article>
 </a>
 
 <style>
   @layer components {
+    a {
+      text-decoration: none;
+    }
+
+    article {
+      display: grid;
+      gap: 1.688rem;
+      text-align: center;
+
+      & > div:nth-child(2) p {
+        color: var(--body-text);
+        padding-top: 0.813rem;
+      }
+
+      & > :last-child {
+        display: flex;
+        justify-content: center;
+        gap: 29px;
+      }
+
+      [data-icon] {
+        width: 24px;
+        height: 24px;
+      }
+    }
+    .picture {
+      display: grid;
+      > * {
+        grid-area: 1/1;
+        border-radius: 15px;
+      }
+      & > p {
+        place-self: end;
+        padding: 4px 21px;
+        border-radius: 29px;
+        background: var(--black);
+        color: var(--white);
+        margin: 1rem;
+      }
+    }
   }
 </style>
 
