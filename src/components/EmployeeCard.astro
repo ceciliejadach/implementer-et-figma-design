@@ -1,5 +1,38 @@
 ---
 const employeeData = await fetch("https://raw.githubusercontent.com/ceciliejadach/frontend-design/main/resources/json/employees.json").then((res) => res.json());
+
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+
+const { employee } = Astro.props;
+const { img, name, title, description } = employee;
+
+const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/images/*.{jpeg,jpg,png,gif}");
+
+const imageImport = images[img];
+if (!imageImport) throw new Error(`"${img}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif}"`);
+
+const image = await imageImport();
+---
+
+<a href={`/singleview/${employee.slug}`}>
+  <article>
+    <div>
+      <Image src={image.default} alt={name} />
+      <h2>{employee.name}</h2>
+      <p>{employee.title}</p>
+      <p>{employee.description}</p>
+    </div>
+  </article>
+</a>
+
+<style>
+  @layer components {
+  }
+</style>
+
+<!-- ---
+const employeeData = await fetch("https://raw.githubusercontent.com/ceciliejadach/frontend-design/main/resources/json/employees.json").then((res) => res.json());
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
 
@@ -10,16 +43,13 @@ const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/images/
 if (!images[img]) throw new Error(`"${img}" does not exist in glob: "src/assets/images/*.{jpeg,jpg,png,gif}"`);
 ---
 
-<article>
-  <div>
-    <Image src={images[img]()} alt={name} />
-    <h2>{employee.name}</h2>
-    <p>{employee.title}</p>
-    <p>{employee.description}</p>
-  </div>
-</article>
-
-<style>
-  @layer components {
-  }
-</style>
+<a href={`/singleview/${employee.slug}`}>
+  <article>
+    <div>
+      <Image src={images[img]()} alt={name} />
+      <h2>{employee.name}</h2>
+      <p>{employee.title}</p>
+      <p>{employee.description}</p>
+    </div>
+  </article>
+</a> -->

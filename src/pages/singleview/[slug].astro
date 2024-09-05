@@ -1,0 +1,19 @@
+---
+const { singleviewData } = Astro.props;
+
+// fetchning af singleview informationer
+export async function getStaticPaths() {
+  const employeeData = await fetch("https://raw.githubusercontent.com/ceciliejadach/frontend-design/main/resources/json/employees.json").then((res) => res.json());
+
+  return employeeData.map((singleview) => {
+    return {
+      params: { slug: singleview.slug },
+      props: { singleviewData: singleview },
+    };
+  });
+}
+---
+
+<section>
+  <p>{singleviewData.slug}</p>
+</section>
