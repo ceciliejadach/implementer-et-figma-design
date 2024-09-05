@@ -1,0 +1,53 @@
+---
+const { url, text, variant, size } = Astro.props;
+import "../styles/global.css";
+---
+
+<!-- <a href={url}> -->
+<button class={variant + " " + size}>
+  <p>{text}</p>
+</button>
+<!-- </a> -->
+
+<style>
+  @layer components {
+    button {
+      padding: 16px 33px;
+      border-radius: 42px;
+      transition:
+        background-color 0.2s,
+        color 0.2s;
+      font-size: var(--body);
+      outline: none;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .primary {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .primary:hover {
+      background-color: var(--white);
+      color: var(--black);
+      outline: solid 2px var(--black);
+    }
+
+    .secondary {
+      background-color: var(--white);
+      color: var(--black);
+    }
+
+    .tertiary {
+      background: var(--yellow);
+      color: var(--black);
+    }
+
+    .tertiary:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+  }
+</style>
