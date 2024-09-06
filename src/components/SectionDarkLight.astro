@@ -1,0 +1,119 @@
+---
+import "../styles/global.css";
+
+import { Icon } from "astro-icon/components";
+
+import Button from "./Button.astro";
+
+const { theme = "dark" } = Astro.props;
+---
+
+<section data-theme={theme}>
+  <div>
+    <div class="flex">
+      <div>
+        <span>Growing with our clients</span>
+        <h4>Financial Projections</h4>
+        <p>Capitalize on low hanging fruit to identify a ballpark value added activity beta test. Override the digital divide with additional from DevOps.</p>
+      </div>
+      <div>
+        <Button variant="secondary" text="Get in touch" />
+      </div>
+    </div>
+  </div>
+  <div>
+    <ul>
+      <li>
+        <Icon name="ideas" />
+        <h6>Creative Ideas</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget accumsan augue Donec aliquam.</p>
+        <div>
+          <a href="#">Read More</a>
+          <span></span>
+        </div>
+      </li>
+      <li>
+        <Icon name="features" />
+        <h6>Best Features</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div>
+          <a href="#">Read More</a>
+        </div>
+      </li>
+      <li>
+        <Icon name="experience" />
+        <h6>Experience</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eget accumsan augue Donec aliquam.</p>
+        <div>
+          <a href="#">Read More</a>
+        </div>
+      </li>
+      <li>
+        <Icon name="solutions" />
+        <h6>Easy Solutions</h6>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div>
+          <a href="#">Read More</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  @layer components {
+    [data-theme="light"] {
+      --bg-section: var(--grey);
+      --text-section: var(--body-text);
+      --bg-card: var(--white);
+    }
+    section {
+      --bg-section: var(--black);
+      --text-section: var(--white);
+      --bg-card: var(--card-bg);
+      container-type: inline-size;
+
+      background: var(--black);
+      color: var(--white);
+
+      .flex span {
+        background: var(--yellow);
+        letter-spacing: 0.145rem;
+        text-transform: uppercase;
+        padding: 0rem 0.75rem;
+        width: fit-content;
+        border-radius: 25px;
+      }
+
+      [data-icon] {
+        width: 3.40406rem;
+        height: 3.40406rem;
+      }
+
+      & > :last-child ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        padding: 0;
+        gap: 2.25rem;
+        align-items: flex-start;
+
+        li {
+          background: var(--grey);
+          color: var(--black);
+          padding: var(--card-padding);
+          border-radius: 1.25rem;
+
+          flex-basis: min(270px, 90%);
+
+          a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 600;
+            font-size: 1.125rem;
+          }
+        }
+      }
+    }
+  }
+</style>

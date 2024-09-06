@@ -7,7 +7,7 @@ import "../styles/global.css";
   <div class="section-container">
     <div>
       <div>
-        <p class="tag"></p>
+        <p class="tag">we'll work with you</p>
         <h2>What To Expect</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
       </div>
@@ -38,6 +38,20 @@ import "../styles/global.css";
         gap: 5.125rem;
         max-width: 1200px;
         margin-inline: auto;
+
+        & > div:first-child div {
+          display: grid;
+          gap: 1rem;
+        }
+
+        .tag {
+          background: var(--yellow);
+          letter-spacing: 0.145rem;
+          text-transform: uppercase;
+          padding: 0rem 0.75rem;
+          width: fit-content;
+          border-radius: 25px;
+        }
 
         @container (width > 800px) {
           grid-template-columns: 1fr 1fr;

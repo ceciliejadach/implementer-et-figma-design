@@ -1,0 +1,124 @@
+---
+import "../styles/global.css";
+---
+
+<section>
+  <div class="content">
+    <div>
+      <span>Experience</span>
+      <h1>More than 25 years of experience</h1>
+      <p>3000+ our clients are insured around the World</p>
+    </div>
+    <div>
+      <div class="parent" style="--percent: 25%">
+        <div class="child"></div>
+        <div>25%</div>
+      </div>
+      <div class="parent" style="--percent: 75%">
+        <div class="child"></div>
+        <div>75%</div>
+      </div>
+      <div class="parent" style="--percent: 65%">
+        <div class="child"></div>
+        <div>65%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @layer components {
+    @property --percent {
+      syntax: "<percentage>";
+      inherits: true;
+      initial-value: 0%;
+    }
+
+    .parent {
+      --offset-pos: 5px;
+      animation: --pie 3s linear infinite;
+      border: var(--offset-pos) solid transparent;
+      background:
+        linear-gradient(#ffcc4a, #ffcc4a) padding-box,
+        radial-gradient(circle at 50% 2.5px, #fff 3px, transparent 0) border-box,
+        conic-gradient(#fff var(--percent), #ba9535 0) border-box;
+      position: relative;
+      display: grid;
+
+      .child {
+        aspect-ratio: 1;
+        border-radius: 99px;
+        width: 20px;
+        background: black;
+        border: solid 3px #fff;
+        position: absolute;
+        offset-path: border-box;
+        offset-distance: var(--percent);
+        offset-anchor: 50% calc(50% - var(--offset-pos) / 2);
+      }
+
+      & > div:last-child {
+        align-content: center;
+        text-align: center;
+        font-size: 2rem;
+      }
+    }
+
+    @keyframes --pie {
+      to {
+        --percent: 100%;
+      }
+    }
+
+    .parent {
+      aspect-ratio: 1;
+      width: 150px;
+      border-radius: 1e5px;
+      margin-inline: auto;
+    }
+
+    section {
+      background: #ffcc4a;
+      padding: 5rem 0;
+    }
+
+    .content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 1rem;
+      max-width: 1200px;
+      margin-inline: auto;
+
+      & > div {
+        place-self: center;
+      }
+
+      & > div:first-child {
+        display: grid;
+        gap: 1rem;
+      }
+
+      span {
+        background: var(--white);
+        padding: 0rem 0.875rem;
+        border-radius: 25px;
+        width: fit-content;
+      }
+
+      & > div:last-child {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+    }
+
+    @media (width < 800px) {
+      .content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+  }
+</style>

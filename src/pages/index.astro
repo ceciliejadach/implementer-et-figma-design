@@ -4,6 +4,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroSection from "../components/HeroSection.astro";
 import SectionPseudo from "../components/SectionPseudo.astro";
 import SectionScroll from "../components/SectionScroll.astro";
+import PieChartSection from "../components/PieChartSection.astro";
+import SectionDarkLight from "../components/SectionDarkLight.astro";
 
 import { ViewTransitions } from "astro:transitions";
 
@@ -16,6 +18,8 @@ const employeeData = await fetch("https://raw.githubusercontent.com/ceciliejadac
   <HeroSection />
   <SectionPseudo />
   <SectionScroll />
+  <PieChartSection />
+  <SectionDarkLight />
 </BaseLayout>
 
 <style></style>
