@@ -1,0 +1,72 @@
+---
+import "../styles/global.css";
+import { Icon } from "astro-icon/components";
+---
+
+<ul class="full-width">
+  <li>
+    <Icon name="sheet" />
+    <h6>The Balance Sheet</h6>
+    <p>The Balance Sheet is a summary of the assets and liabilities and equity of a business at a specific point of time.</p>
+  </li>
+  <li>
+    <Icon name="income" />
+    <h6>Income Statement</h6>
+    <p>The Income (Profit and Loss) Statement, commonly referred to as the P&L statement, summarizes the revenue and expenses for a specific time period (one month, one quarter, one year, etc.)</p>
+  </li>
+  <li>
+    <Icon name="plan" />
+    <h6>Financial Plan</h6>
+    <p>Keep your information current and review the documents on a regular basis (monthly or more often if needed). Review them with key individuals within your company.</p>
+  </li>
+  <li>
+    <Icon name="ratios" />
+    <h6>Financial Ratios</h6>
+    <p>Ratios are useful when comparing your company with the competition on financial performance and also when benchmarking the performance of your company.</p>
+  </li>
+</ul>
+
+<style>
+  @layer components {
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      padding: 1rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-snap-stop: always;
+      align-items: flex-start;
+
+      [data-icon] {
+        width: 2.375rem;
+        height: 2.375rem;
+      }
+
+      li {
+        background: var(--grey);
+        color: var(--black);
+        padding: var(--card-padding);
+        border-radius: var(--card-border-radius);
+        flex-basis: min(400px, 90%);
+        flex-shrink: 0;
+        scroll-snap-align: center;
+        transition:
+          transform 0.3s ease,
+          background-color 0.3s ease,
+          color 0.3s ease;
+      }
+
+      & > li:hover {
+        background-color: var(--black); /* Skifter baggrundsfarve ved hover */
+        color: var(--white); /* Skifter tekstfarve ved hover */
+        transform: scale(1.05); /* Gør li-elementet lidt større ved hover */
+      }
+
+      ul li h6,
+      ul li p {
+        transition: color 0.3s ease;
+      }
+    }
+  }
+</style>

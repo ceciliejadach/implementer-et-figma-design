@@ -5,14 +5,15 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 
-@view-transition {
+/* @view-transition {
   navigation: auto;
-}
+} */
 
 @layer global {
   html {
     --headline-text: #1c1c1c;
     --body-text: #595566;
+    --navigation: #1b1b1be8;
     --yellow: #ffcc4a;
     --green: #4eaf4e;
     --black: #181818;
@@ -27,12 +28,12 @@
     --fluid-16-25: clamp(1rem, 0.8043rem + 0.9783vw, 1.5625rem);
     --body: 1rem;
 
-    color: var(--body-text);
-    font-size: var(--body);
-    line-height: 1.3;
     font-family: "lato";
     --font-weight-600: 600;
     --font-weight-700: 700;
+
+    --card-padding: 2.8125rem 2.0625rem;
+    --card-border-radius: 1.25rem;
   }
 
   h1,
@@ -40,7 +41,6 @@
   h3,
   h4,
   h5 {
-    color: var(--headline-text);
     font-family: "cabin";
   }
   h1 {
@@ -71,5 +71,10 @@
   h6 {
     font-size: var(--fluid-16-25);
     font-weight: var(--font-weight-700);
+  }
+
+  p {
+    /* color: var(--body-text); */
+    font-size: var(--body);
   }
 }

@@ -1,0 +1,101 @@
+---
+import ScrollContainer from "./ScrollContainer.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<section>
+  <div>
+    <div class="flex">
+      <div>
+        <Icon name="projections" />
+        <h4>Financial Projections</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+      </div>
+      <div>
+        <Icon name="back" />
+        <Icon name="next" />
+      </div>
+    </div>
+    <ScrollContainer />
+  </div>
+</section>
+
+<style>
+  @layer components {
+    :root {
+      --content-width: 65rem;
+    }
+    section {
+      display: grid;
+      grid-template-columns: 1fr minmax(0, var(--content-width)) 1fr;
+      container-type: inline-size;
+
+      > * {
+        grid-column: 2;
+      }
+
+      & > :first-child {
+        grid-column: 1 / -1;
+        display: grid;
+        /* inherit svarer til at man kopierer den ovenstående grid-template-columns styling i main */
+        grid-template-columns: inherit;
+        row-gap: 2rem;
+
+        > * {
+          grid-column: 2;
+        }
+        ul {
+          grid-column: 1 /-1;
+          padding-inline: max(1rem, 50% - var(--content-width) / 2);
+        }
+      }
+
+      .flex {
+        display: flex;
+        justify-content: space-between;
+
+        & > :first-child {
+          max-width: 40.3125rem;
+
+          :first-child {
+            [data-icon] {
+              width: 6.58675rem;
+              height: 4.44144rem;
+            }
+          }
+        }
+
+        & > :last-child {
+          display: flex;
+          place-items: flex-end;
+          gap: 0.5rem;
+        }
+
+        [data-icon] {
+          width: 4.40406rem;
+          height: 4.40406rem;
+        }
+      }
+
+      @container (width < 800px) {
+        & > :first-child {
+          row-gap: 0;
+        }
+
+        .flex {
+          display: grid;
+          gap: 1rem;
+
+          [data-icon] {
+            width: 3.40406rem;
+            height: 3.40406rem;
+          }
+
+          & > :last-child {
+            justify-self: end;
+          }
+        }
+      }
+    }
+  }
+</style>

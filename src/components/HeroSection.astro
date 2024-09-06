@@ -1,0 +1,153 @@
+---
+import "../styles/global.css";
+import Button from "./Button.astro";
+
+import { Icon } from "astro-icon/components";
+---
+
+<section class="break-out-content">
+  <div class="background-container">
+    <div class="text-content">
+      <h1>Adam Buschemia <br /> Business Consultant</h1>
+      <p>Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling.</p>
+      <Button variant="secondary" text="Book a meeting" />
+    </div>
+    <img src="/src/assets/images/hero.png" alt="" />
+  </div>
+  <div class="boxes">
+    <div>
+      <h6>Finance & Restructuring</h6>
+      <p>Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling.</p>
+      <Button variant="primary" text="Our Services" />
+    </div>
+    <div>
+      <h6>Our Approach</h6>
+      <p>Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling.</p>
+      <Button variant="primary" text="More About" />
+    </div>
+    <div>
+      <h6>Consultalk Result</h6>
+      <p>Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling.</p>
+      <Button variant="primary" text="Explore Our Solution" />
+    </div>
+  </div>
+</section>
+
+<style>
+  @layer components {
+    section {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 1fr auto auto;
+
+      & > div:first-child {
+        grid-column: 1 / -1;
+        grid-row: 1 / 3;
+        display: grid;
+        grid-template-columns: subgrid;
+        background: var(--black);
+        align-items: start;
+      }
+
+      & > div:first-child > div {
+        grid-column: 2/ 7;
+        display: grid;
+        gap: 1rem;
+        padding: 2rem 1rem;
+
+        :last-child {
+          color: var(--black);
+        }
+      }
+
+      & > div:first-child > img {
+        grid-column: 7 / -1;
+        grid-row: 1 / 3;
+        /* width: 100%;
+        height: auto;
+        object-fit: cover; */
+      }
+
+      & > div:last-child {
+        grid-column: 2 / -2;
+        /* grid-row: 3 / -1; */
+        display: grid;
+        grid-template-columns: inherit;
+        align-self: end;
+        margin-top: -6rem;
+      }
+
+      & > div:last-child > div {
+        grid-column: span 4;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(38, 38, 38, 0.9);
+        backdrop-filter: blur(16px);
+        border-radius: 1.25rem;
+        padding: min(3rem, 5%);
+        width: min(65ch, 100% - 2rem);
+        margin-inline: auto;
+        display: grid;
+        gap: 0.7rem;
+      }
+
+      h1,
+      h6,
+      p {
+        color: var(--white);
+      }
+    }
+
+    @media (width < 1024px) {
+      section {
+        & > div:first-child > div {
+          grid-column: 1 / -1;
+          padding: 3rem 3rem 8rem 3rem;
+        }
+        & > div:first-child > img {
+          grid-column: 1/ -1;
+          grid-row: 1 / -1;
+        }
+
+        & > div:last-child {
+          grid-column: 1 / -1;
+          /* grid-row: 3 / 4; */
+          grid-row: auto;
+          gap: 1rem;
+          margin-top: -8rem;
+          padding: 3rem;
+        }
+
+        & > div:last-child > div {
+          grid-column: span 6;
+        }
+      }
+    }
+
+    @media (width < 768px) {
+      section {
+        grid-template-columns: 1fr;
+
+        & > div:first-child {
+          grid-row: auto;
+        }
+
+        & > div:first-child > div {
+          grid-column: 1 / -1;
+          grid-row: auto;
+        }
+
+        & > div:first-child > img {
+          grid-row: 1;
+        }
+
+        & > div:last-child {
+          grid-template-columns: 1fr;
+        }
+
+        & > div:last-child > div {
+          grid-column: span 12;
+        }
+      }
+    }
+  }
+</style>

@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { Icon } from "astro-icon/components";
-import EmployeeSection from "../components/EmployeeSection.astro";
-import Button from "../components/Button.astro";
+import HeroSection from "../components/HeroSection.astro";
+import SectionPseudo from "../components/SectionPseudo.astro";
+import SectionScroll from "../components/SectionScroll.astro";
 
 import { ViewTransitions } from "astro:transitions";
 
@@ -13,17 +13,9 @@ const employeeData = await fetch("https://raw.githubusercontent.com/ceciliejadac
 ---
 
 <BaseLayout title="Home">
-  <h1>Welcome to Astro</h1>
-  <EmployeeSection data={employeeData} />
-  <EmployeeSection data={employeeData} theme="dark" />
-
-  <Button variant="primary" text="Our Services" />
-  <Button variant="secondary" text="Our Services" />
-  <Button variant="tertiary" text="More News" />
+  <HeroSection />
+  <SectionPseudo />
+  <SectionScroll />
 </BaseLayout>
 
-<style>
-  [data-icon] {
-    width: 24px;
-  }
-</style>
+<style></style>

@@ -7,3 +7,7 @@
 h2 {
   --flow-space: 2em;
 }
+
+h3 {
+  --flow-space: 1em;
+}
