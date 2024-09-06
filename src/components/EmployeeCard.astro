@@ -1,11 +1,12 @@
 ---
 import "../styles/global.css";
 
+import { Icon } from "astro-icon/components";
+
 // fetche json employee data
 const employeeData = await fetch("https://raw.githubusercontent.com/ceciliejadach/frontend-design/main/resources/json/employees.json").then((res) => res.json());
 
 import type { ImageMetadata } from "astro";
-import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 
 const { employee } = Astro.props;

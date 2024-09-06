@@ -5,6 +5,8 @@ import { Icon } from "astro-icon/components";
 import EmployeeSection from "../components/EmployeeSection.astro";
 import Button from "../components/Button.astro";
 
+import { ViewTransitions } from "astro:transitions";
+
 const employeeData = await fetch("https://raw.githubusercontent.com/ceciliejadach/frontend-design/main/resources/json/employees.json").then((res) => res.json());
 
 // const firstThreeEmployees = employeeData.slice(0, 3);
