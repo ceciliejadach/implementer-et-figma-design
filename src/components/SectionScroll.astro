@@ -58,13 +58,6 @@ import { Icon } from "astro-icon/components";
 
         & > :first-child {
           max-width: 40.3125rem;
-
-          :first-child {
-            [data-icon] {
-              width: 6.58675rem;
-              height: 4.44144rem;
-            }
-          }
         }
 
         & > :last-child {
@@ -87,6 +80,7 @@ import { Icon } from "astro-icon/components";
         .flex {
           display: grid;
           gap: 1rem;
+          justify-content: normal;
 
           [data-icon] {
             width: 3.40406rem;

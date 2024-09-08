@@ -71,10 +71,20 @@ const { theme = "dark" } = Astro.props;
       --bg-section: var(--black);
       --text-section: var(--white);
       --bg-card: var(--card-bg);
-      container-type: inline-size;
 
       background: var(--black);
       color: var(--white);
+      padding: 2rem 1rem;
+      margin-inline: auto;
+
+      .flex {
+        display: grid;
+        gap: 1rem;
+
+        & > :first-child {
+          max-width: 38rem;
+        }
+      }
 
       .flex span {
         background: var(--yellow);
@@ -91,27 +101,56 @@ const { theme = "dark" } = Astro.props;
       }
 
       & > :last-child ul {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(4, auto);
         list-style: none;
         padding: 0;
-        gap: 2.25rem;
+        gap: 1rem;
         align-items: flex-start;
+        justify-content: center;
 
         li {
           background: var(--grey);
           color: var(--black);
-          padding: var(--card-padding);
+          padding: 2.25rem 1.4375rem;
           border-radius: 1.25rem;
-
           flex-basis: min(270px, 90%);
+          display: grid;
+          gap: 0.625rem;
 
           a {
             text-decoration: none;
             color: var(--black);
             font-weight: 600;
             font-size: 1.125rem;
+            display: flex;
+            gap: 0.4rem;
           }
+
+          a::after {
+            content: url("../icons/arrow.svg");
+            align-self: center;
+          }
+        }
+      }
+
+      @media (width > 880px) {
+        .flex {
+          display: flex;
+          gap: 1rem;
+          justify-content: space-between;
+          align-items: flex-end;
+        }
+      }
+      @media (width < 920px) {
+        & > :last-child ul {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (width < 500px) {
+        & > :last-child ul {
+          grid-template-columns: 1fr;
         }
       }
     }
