@@ -6,6 +6,7 @@ import SectionPseudo from "../components/SectionPseudo.astro";
 import SectionScroll from "../components/SectionScroll.astro";
 import PieChartSection from "../components/PieChartSection.astro";
 import SectionDarkLight from "../components/SectionDarkLight.astro";
+import Gallery from "../components/Gallery.astro";
 
 import { ViewTransitions } from "astro:transitions";
 
@@ -20,6 +21,7 @@ const employeeData = await fetch("https://raw.githubusercontent.com/ceciliejadac
   <SectionScroll />
   <PieChartSection />
   <SectionDarkLight />
+  <Gallery />
 </BaseLayout>
 
 <style></style>
