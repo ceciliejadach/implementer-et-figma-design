@@ -1,0 +1,45 @@
+---
+import "../styles/global.css";
+import Newsletter from "./Newsletter.astro";
+---
+
+<section>
+  <Newsletter />
+  <footer>
+    <div>
+      <h5><a href="/">AskExperts</a></h5>
+      <hr />
+      <p>©2022 Consultalk. All rights reserved | Terms of Service | Privacy Policy</p>
+    </div>
+  </footer>
+</section>
+
+<style>
+  @layer componenets {
+    section {
+      display: grid;
+      gap: 5rem;
+    }
+    footer {
+      background-color: var(--black);
+      padding: 2.875rem 0rem;
+      text-align: center;
+
+      div {
+        display: grid;
+        gap: 1rem;
+        color: var(--white);
+
+        a {
+          color: white;
+          text-decoration: none;
+        }
+
+        hr {
+          height: 1px;
+          width: 80%;
+        }
+      }
+    }
+  }
+</style>

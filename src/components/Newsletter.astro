@@ -37,7 +37,6 @@ import Button from "./Button.astro";
         display: flex;
         flex-wrap: wrap;
         gap: 1rem;
-        container-type: inline-size;
 
         .flex {
           display: flex;
@@ -90,13 +89,12 @@ import Button from "./Button.astro";
     }
     @media (width > 800px) {
       section {
-        inline-size: min(850px, 100% - 1rem);
+        inline-size: min(1000px, 100% - 1rem);
 
         & > :first-child {
           flex-wrap: nowrap;
           align-items: center;
           justify-content: space-between;
-          z-index: 10;
         }
       }
     }
