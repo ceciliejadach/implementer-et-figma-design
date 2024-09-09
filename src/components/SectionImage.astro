@@ -1,0 +1,45 @@
+---
+import "../styles/global.css";
+---
+
+<section>
+  <div class="content">
+    <span>Services</span>
+    <h2>Creative Services For Boost Your Business Growth</h2>
+  </div>
+  <figure>
+    <img src="../assets/images/hero-1.png" alt="" />
+  </figure>
+</section>
+
+<style>
+  @layer component {
+    figure {
+      :has(> &) {
+        --debug: false;
+      }
+
+      view-timeline: --img;
+      position: relative;
+      aspect-ratio: 1;
+
+      img {
+        inline-size: 100%;
+        object-fit: cover;
+        contain: paint;
+
+        animation: parallax linear both;
+        animation-timeline: --img;
+      }
+    }
+
+    @keyframes parallax {
+      from {
+        object-position: bottom;
+      }
+      to {
+        object-position: top;
+      }
+    }
+  }
+</style>
