@@ -1,0 +1,108 @@
+---
+import "../styles/global.css";
+
+import Gallery from "./Gallery.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<section>
+  <div class="content">
+    <div>
+      <span>Process</span>
+      <h2>Contact Us. It's Easy.</h2>
+      <p>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative.</p>
+    </div>
+    <div>
+      <div class="flex">
+        <Icon name="call" />
+        <div>
+          <p>Call Today</p>
+          <p>+1 800 100 900</p>
+        </div>
+      </div>
+      <div class="flex">
+        <Icon name="clock" />
+        <div>
+          <p>Monday To Friday</p>
+          <p>9AM - 5PM</p>
+        </div>
+      </div>
+      <div class="flex">
+        <Icon name="location" />
+        <div>
+          <p>USA Office</p>
+          <p>195 Devonshire St Boston, MA 02110</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <Gallery />
+</section>
+
+<style>
+  @layer components {
+    section {
+      display: grid;
+      padding: 2rem 1rem;
+
+      .content {
+        display: inherit;
+        gap: 2.375rem;
+        padding-bottom: 1rem;
+
+        & > * {
+          align-self: start;
+        }
+
+        & > div {
+          display: grid;
+          gap: 0.7rem;
+
+          p {
+            max-width: 25.4375rem;
+          }
+        }
+
+        & > :last-child {
+          display: grid;
+          gap: 1rem;
+        }
+
+        .flex {
+          display: flex;
+          gap: 1rem;
+
+          & > div p:last-of-type {
+            color: var(--black);
+            font-size: 1.25rem;
+            font-weight: 600;
+          }
+        }
+
+        [data-icon] {
+          width: 3.27075rem;
+          height: 3.27075rem;
+        }
+      }
+
+      span {
+        background: var(--yellow);
+        letter-spacing: 0.145rem;
+        text-transform: uppercase;
+        padding: 0rem 0.75rem;
+        width: fit-content;
+        height: fit-content;
+        border-radius: 25px;
+      }
+
+      @media (width > 900px) {
+        grid-template-columns: 1fr 2fr;
+        gap: 2rem;
+
+        .content {
+          gap: 0;
+        }
+      }
+    }
+  }
+</style>
