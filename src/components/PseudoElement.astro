@@ -37,7 +37,7 @@ import "../styles/global.css";
         z-index: -1;
         content: "";
         position: absolute;
-        inset: -30px -30px auto auto;
+        inset: -50px 350px auto auto;
         inline-size: calc(var(--square-count) * 1.34rem - 0.67rem);
         inline-size: calc(round(var(--_square-sum), var(--_square-size)) - var(--_square-half));
         aspect-ratio: 1;
@@ -45,17 +45,17 @@ import "../styles/global.css";
         mask:
           var(--square-pattern) 0 0 / var(--_square-size) var(--_square-size),
           var(--square-pattern) var(--_square-half) var(--_square-half) / var(--_square-size) var(--_square-size);
-        clip-path: polygon(-3% 0%, 100% 0%, 100% 103%);
+        /* clip-path: polygon(-3% 0%, 100% 0%, 100% 103%); */
       }
 
       &::after {
         content: "";
         position: absolute;
         left: -1rem;
-        bottom: -1rem;
+        bottom: 11rem;
         background: green;
         width: 150px;
-        height: 100px;
+        height: 150px;
         border-radius: 10px;
         z-index: -1;
       }

@@ -35,13 +35,14 @@ import "../styles/global.css";
       .section-container {
         padding: 1rem;
         display: grid;
-        gap: 5.125rem;
+        gap: 1rem;
         max-width: 1200px;
         margin-inline: auto;
 
         & > div:first-child div {
           display: grid;
           gap: 1rem;
+          width: min(65ch, 100% - 2rem);
         }
 
         .tag {
@@ -53,7 +54,7 @@ import "../styles/global.css";
           border-radius: 25px;
         }
 
-        @container (width > 800px) {
+        @container (width > 1000px) {
           grid-template-columns: 1fr 1fr;
 
           & > :first-child {
