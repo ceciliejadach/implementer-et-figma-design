@@ -33,7 +33,7 @@ const { title = "AskExperts" } = Astro.props;
       --full: minmax(var(--gap), 1fr);
       --content: min(50ch, 100% - var(--gap) * 2);
       --popout: minmax(0, 2rem);
-      --feature: minmax(0, 7rem);
+      --feature: minmax(0, 15rem);
 
       display: grid;
       grid-template-columns:
@@ -48,6 +48,21 @@ const { title = "AskExperts" } = Astro.props;
       > * {
         display: grid;
         grid-column: full;
+        grid-template-columns: subgrid;
+
+        > * {
+          grid-column: feature;
+        }
+      }
+
+      .full-bleed {
+        grid-column: full;
+        display: grid;
+        grid-template-columns: subgrid;
+
+        > * {
+          grid-column: feature;
+        }
       }
     }
   }
