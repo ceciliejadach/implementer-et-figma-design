@@ -1,0 +1,50 @@
+---
+import "../styles/global.css";
+---
+
+<section>
+  <dl>
+    <div>
+      <dt>Successful Work</dt>
+      <dd>1128+</dd>
+    </div>
+    <div>
+      <dt>Team members</dt>
+      <dd>908+</dd>
+    </div>
+    <div>
+      <dt>Happy customers</dt>
+      <dd>258+</dd>
+    </div>
+    <div>
+      <dt>Creative Idea</dt>
+      <dd>564+</dd>
+    </div>
+  </dl>
+</section>
+
+<style>
+  @layer components {
+    section {
+      dl {
+        margin: 3rem;
+        text-align: center;
+
+        display: flex;
+        gap: 3rem;
+
+        > * {
+          display: flex;
+          flex-direction: column-reverse;
+          font-size: 1.125rem;
+          color: #181818;
+
+          :last-child {
+            font-size: 3.125rem;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+</style>

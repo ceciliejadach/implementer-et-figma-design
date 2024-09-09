@@ -40,7 +40,8 @@ import Button from "./Button.astro";
 
         .flex {
           display: flex;
-          gap: 1rem;
+          flex-direction: column;
+          gap: 0.5rem;
         }
       }
       &::before {
@@ -95,6 +96,10 @@ import Button from "./Button.astro";
           flex-wrap: nowrap;
           align-items: center;
           justify-content: space-between;
+
+          .flex {
+            flex-direction: row;
+          }
         }
       }
     }
