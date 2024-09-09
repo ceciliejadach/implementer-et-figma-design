@@ -1,34 +1,21 @@
 ---
 import EmployeeCard from "./EmployeeCard.astro";
 
-const { data, theme = "light" } = Astro.props;
+const { data } = Astro.props;
 ---
 
-<section data-theme={theme}>
+<section>
   {data.map((employee) => <EmployeeCard {employee} />)}
 </section>
 
 <style>
   @layer components {
-    [data-theme="dark"] {
-      --bg-section: white;
-      --text-section: white;
-      --bg-card: blue;
-      --text-color: blue;
-    }
     section {
-      --bg-section: red;
-      --text-section: white;
-      --bg-card: blue;
-      --text-color: white;
-
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 3.188rem;
-      max-width: 1200px;
-      margin-inline: auto;
 
-      padding: 2rem;
+      /* padding: 2rem; */
       color: var(--text-color);
       background: var(--bg-section);
     }

@@ -41,6 +41,14 @@ import { Icon } from "astro-icon/components";
       [data-icon] {
         width: 2.375rem;
         height: 2.375rem;
+
+        & path {
+          fill: var(--black);
+        }
+
+        li:hover & path {
+          fill: var(--yellow);
+        }
       }
 
       li {

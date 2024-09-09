@@ -5,7 +5,7 @@ import { Icon } from "astro-icon/components";
 
 import Button from "./Button.astro";
 
-const { theme = "dark" } = Astro.props;
+const { theme } = Astro.props;
 ---
 
 <section class="full-bleed" data-theme={theme}>
@@ -62,18 +62,13 @@ const { theme = "dark" } = Astro.props;
 
 <style>
   @layer components {
-    [data-theme="light"] {
-      --bg-section: var(--grey);
-      --text-section: var(--body-text);
-      --bg-card: var(--white);
-    }
-    section {
+    [data-theme="dark"] {
       --bg-section: var(--black);
       --text-section: var(--white);
-      --bg-card: var(--card-bg);
-
-      background: var(--black);
-      color: var(--white);
+    }
+    section {
+      background: var(--bg-section, var(--grey));
+      color: var(--text-section, var(--black));
       padding: 2rem 1rem;
       margin-inline: auto;
 
@@ -99,6 +94,14 @@ const { theme = "dark" } = Astro.props;
       [data-icon] {
         width: 3.40406rem;
         height: 3.40406rem;
+
+        & path {
+          stroke: var(--white);
+        }
+
+        li:hover & path {
+          stroke: var(--yellow);
+        }
       }
 
       & > :last-child ul {
@@ -111,7 +114,7 @@ const { theme = "dark" } = Astro.props;
         justify-content: center;
 
         li {
-          background: var(--grey);
+          background: var(--white);
           color: var(--black);
           padding: 2.25rem 1.4375rem;
           border-radius: 1.25rem;
@@ -136,6 +139,8 @@ const { theme = "dark" } = Astro.props;
       }
 
       @media (width > 880px) {
+        padding: 6.25rem 0;
+
         .flex {
           display: flex;
           gap: 1rem;
