@@ -20,7 +20,7 @@ import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { Icon } from "astro-icon/components";
 
-const { img, name, title, description } = singleviewData;
+const { img, name, title, description, slug } = singleviewData;
 
 const images = import.meta.glob<{ default: ImageMetadata }>("/src/assets/images/*.{jpeg,jpg,png,gif}");
 
@@ -34,7 +34,7 @@ const image = await imageImport();
   <section class="full-bleed">
     <article>
       <figure>
-        <Image src={image.default} alt={name} />
+        <Image src={image.default} alt={name} style=`view-transition-name:${slug}` />
       </figure>
       <div class="parent">
         <div>
@@ -110,8 +110,8 @@ const image = await imageImport();
         content: "";
 
         position: absolute;
-        top: -20px;
-        bottom: 20px;
+        left: -3rem;
+        top: -3rem;
         /* inset: -30px 340px auto auto; */
         inline-size: calc(var(--square-count) * 1.34rem - 0.67rem);
         inline-size: calc(round(var(--_square-sum), var(--_square-size)) - var(--_square-half));
@@ -127,7 +127,7 @@ const image = await imageImport();
         content: "";
         position: absolute;
         left: -1rem;
-        bottom: 11rem;
+        top: -1rem;
         background: green;
         width: 150px;
         height: 150px;
