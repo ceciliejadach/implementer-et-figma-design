@@ -1,0 +1,251 @@
+---
+import "../styles/global.css";
+---
+
+<section class="accordion-container">
+  <div>
+    <span>FAQ</span>
+    <h1>Customer Questions</h1>
+  </div>
+  <ul>
+    <li>
+      <article>
+        <h3>
+          <button aria-expanded="false">
+            <span>What will happen when I’ve sent my application?</span>
+            <svg viewBox="0 0 10 10" aria-hidden="true" stroke="#181818" stroke-linecap="round">
+              <line class="vertical-line" x1="5" y1="1" x2="5" y2="9"></line>
+              <line x1="1" y1="5" x2="9" y2="5"></line>
+            </svg>
+          </button>
+        </h3>
+        <div class="answer-container">
+          <div class="answer">
+            <p>Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.</p>
+          </div>
+        </div>
+      </article>
+    </li>
+    <li>
+      <article>
+        <h3>
+          <button aria-expanded="false">
+            <span>Can I get a free trial before I purchase?</span>
+            <svg viewBox="0 0 10 10" aria-hidden="true" stroke="#181818" stroke-linecap="round">
+              <line class="vertical-line" x1="5" y1="1" x2="5" y2="9"></line>
+              <line x1="1" y1="5" x2="9" y2="5"></line>
+            </svg>
+          </button>
+        </h3>
+        <div class="answer-container">
+          <div class="answer">
+            <p>Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.</p>
+          </div>
+        </div>
+      </article>
+    </li>
+    <li>
+      <article>
+        <h3>
+          <button aria-expanded="false">
+            <span>What should I include in my personal statement?</span>
+            <svg viewBox="0 0 10 10" aria-hidden="true" stroke="#181818" stroke-linecap="round">
+              <line class="vertical-line" x1="5" y1="1" x2="5" y2="9"></line>
+              <line x1="1" y1="5" x2="9" y2="5"></line>
+            </svg>
+          </button>
+        </h3>
+        <div class="answer-container">
+          <div class="answer">Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.</div>
+        </div>
+      </article>
+    </li>
+    <li>
+      <article>
+        <h3>
+          <button aria-expanded="false">
+            <span>Will membership plans be charged automatically?</span>
+            <svg viewBox="0 0 10 10" aria-hidden="true" stroke="#181818" stroke-linecap="round">
+              <line class="vertical-line" x1="5" y1="1" x2="5" y2="9"></line>
+              <line x1="1" y1="5" x2="9" y2="5"></line>
+            </svg>
+          </button>
+        </h3>
+        <div class="answer-container">
+          <div class="answer">Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.</div>
+        </div>
+      </article>
+    </li>
+    <li>
+      <article>
+        <h3>
+          <button aria-expanded="false">
+            <span>What will happen when I’ve sent my application?</span>
+            <svg viewBox="0 0 10 10" aria-hidden="true" stroke="#181818" stroke-linecap="round">
+              <line class="vertical-line" x1="5" y1="1" x2="5" y2="9"></line>
+              <line x1="1" y1="5" x2="9" y2="5"></line>
+            </svg>
+          </button>
+        </h3>
+        <div class="answer-container">
+          <div class="answer">Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.</div>
+        </div>
+      </article>
+    </li>
+    <li>
+      <article>
+        <h3>
+          <button aria-expanded="false">
+            <span>Can I get a free trial before I purchase?</span>
+            <svg viewBox="0 0 10 10" aria-hidden="true" stroke="#181818" stroke-linecap="round">
+              <line class="vertical-line" x1="5" y1="1" x2="5" y2="9"></line>
+              <line x1="1" y1="5" x2="9" y2="5"></line>
+            </svg>
+          </button>
+        </h3>
+        <div class="answer-container">
+          <div class="answer">Ippsum is the result of synergy between our teams and our customers. Our company culture is focused on excellent productivity, customer satisfaction, respect for team and individual achievements.</div>
+        </div>
+      </article>
+    </li>
+  </ul>
+</section>
+
+<style>
+  @layer components {
+    section {
+      padding-block: 3rem;
+      background: #f5f5f5;
+      border-radius: 25px;
+      margin-block: 5rem;
+
+      div {
+        text-align: center;
+
+        h1 {
+          margin-block-start: 2rem;
+        }
+      }
+      div span {
+        background: var(--green);
+        letter-spacing: 0.145rem;
+        text-transform: uppercase;
+        padding: 0rem 0.75rem;
+        width: fit-content;
+        border-radius: 25px;
+        margin-bottom: 3rem;
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 1rlh;
+      max-width: 725px;
+      margin-inline: auto;
+    }
+  }
+
+  article {
+    color: hsl(190 30% 12%);
+    border-bottom: 1px solid #dadada;
+  }
+
+  article:has([aria-expanded="true"]) {
+    /*...*/
+    .vertical-line {
+      rotate: z 90deg;
+    }
+  }
+
+  h3 {
+    font-weight: 700;
+    color: #181818;
+    text-wrap: revert;
+
+    span {
+      font-size: 1.25rem;
+    }
+  }
+
+  button {
+    border: none;
+    text-align: start;
+    padding: 0;
+    inline-size: 100%;
+    padding-block: 1rlh;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+
+    svg {
+      inline-size: auto;
+      height: 0.4lh;
+      flex-shrink: 0;
+
+      .vertical-line {
+        transform-box: fill-box;
+        transform-origin: 50% 50%;
+        rotate: z 0deg;
+        transition: 0.6s;
+      }
+    }
+  }
+
+  .answer-container {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s ease-in-out;
+  }
+
+  .answer-container.is-open {
+    grid-template-rows: 1fr;
+  }
+
+  .answer {
+    color: #595566;
+    overflow: hidden;
+    > * + * {
+      margin-top: 1em;
+    }
+
+    :last-child {
+      padding-block-end: 1rlh;
+    }
+
+    .link-block {
+      display: block;
+    }
+  }
+</style>
+
+<script>
+  const accordionWrappers = document.querySelectorAll(".accordion-container");
+
+  accordionWrappers.forEach((accordionWrapper) => {
+    accordionWrapper.addEventListener("click", (event) => {
+      const button = event.target.closest("button");
+      const article = button.closest("article");
+      const answerContainer = article.querySelector(".answer-container");
+      const exclusive = accordionWrapper.dataset.exclusive;
+
+      if (!article || !button) {
+        return;
+      }
+
+      const expanded = button.getAttribute("aria-expanded") === "true";
+
+      if (exclusive === "true") {
+        const currentExpanded = accordionWrapper.querySelector('[aria-expanded="true"]');
+
+        if (currentExpanded && currentExpanded !== button) {
+          currentExpanded.setAttribute("aria-expanded", "false");
+          const otherAnswerContainer = currentExpanded.closest("article").querySelector(".answer-container");
+          otherAnswerContainer.classList.remove("is-open");
+        }
+      }
+
+      button.setAttribute("aria-expanded", !expanded);
+      answerContainer.classList.toggle("is-open", !expanded); // Tilføj/fjern klassen 'is-open'
+    });
+  });
+</script>

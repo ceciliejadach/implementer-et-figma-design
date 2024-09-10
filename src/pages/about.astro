@@ -6,15 +6,17 @@ import SectionStats from "../components/SectionStats.astro";
 import SectionDarkLight from "../components/SectionDarkLight.astro";
 import EmployeeSection from "../components/EmployeeSection.astro";
 import SectionWeChampion from "../components/SectionWeChampion.astro";
+import Accordion from "../components/Accordion.astro";
 const employeeData = await fetch("https://raw.githubusercontent.com/ceciliejadach/frontend-design/main/resources/json/employees.json").then((res) => res.json());
 const firstThreeEmployees = employeeData.slice(0, 3);
 ---
 
 <BaseLayout title="About">
-  <SectionImage />
+  <SectionImage image="/src/assets/images/hero-1.png" spanText="Services" heading="Creative Services For Boost Your Business Growth" />
   <SectionTurnIdeas />
   <SectionStats />
   <SectionDarkLight />
   <SectionWeChampion />
   <EmployeeSection data={firstThreeEmployees} />
+  <Accordion />
 </BaseLayout>
