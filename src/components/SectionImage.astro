@@ -1,54 +1,43 @@
 ---
-const { image, spanText, heading } = Astro.props;
+const { background, spanText, heading } = Astro.props;
 ---
 
-<section class="full-full">
-  <div class="container">
-    <div class="content-wrapper">
-      <span>{spanText}</span>
-      <h1>{heading}</h1>
-    </div>
-    <img src={image} alt="Hero image" />
+<section class="full-bleed">
+  <div class="content-wrapper">
+    <span>{spanText}</span>
+    <h1>{heading}</h1>
   </div>
 </section>
 
-<style>
+<style define:vars={{ background: `url("${background}")` }}>
   @layer component {
-    .container {
-      display: grid;
-      gap: 1rem;
-      padding: 0;
-      isolation: isolate;
-      color: #fff;
-      place-items: center;
-      background-color: black;
+    section {
+      background-image: var(--background);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
 
-      > * {
-        grid-area: 1 / 1;
-      }
+      width: 100%;
+      height: 500px;
+    }
 
-      img {
-        grid-column: 1/-1;
-      }
+    .content-wrapper {
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--black);
+      z-index: 10;
+      padding: min(2rem, 5%);
+      width: fit-content;
+      border-radius: 1.8125rem;
+      backdrop-filter: blur(5.5px);
+      align-self: center;
 
-      .content-wrapper {
-        background: rgba(255, 255, 255, 0.85);
-        color: var(--black);
-        z-index: 10;
-        padding: min(1rem, 5%);
-        width: min(65ch, 100% - 2rem);
-        border-radius: 1.8125rem;
-        backdrop-filter: blur(5.5px);
-        align-self: center;
-
-        span {
-          background: var(--yellow);
-          letter-spacing: 0.145rem;
-          text-transform: uppercase;
-          padding: 0rem 0.75rem;
-          width: fit-content;
-          border-radius: 25px;
-        }
+      span {
+        background: var(--yellow);
+        letter-spacing: 0.145rem;
+        text-transform: uppercase;
+        padding: 0rem 0.75rem;
+        width: fit-content;
+        border-radius: 25px;
       }
     }
   }

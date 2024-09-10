@@ -23,7 +23,7 @@ import "../styles/global.css";
       position: relative;
 
       img {
-        width: 100%;
+        max-width: 500px;
         border-radius: 25px;
       }
 
@@ -37,7 +37,7 @@ import "../styles/global.css";
         z-index: -1;
         content: "";
         position: absolute;
-        inset: -50px 260px auto auto;
+        inset: -30px 340px auto auto;
         inline-size: calc(var(--square-count) * 1.34rem - 0.67rem);
         inline-size: calc(round(var(--_square-sum), var(--_square-size)) - var(--_square-half));
         aspect-ratio: 1;
@@ -51,9 +51,8 @@ import "../styles/global.css";
       &::after {
         content: "";
         position: absolute;
-
         left: -1rem;
-        bottom: 9rem;
+        bottom: 11rem;
         background: green;
         width: 150px;
         height: 150px;
