@@ -1,0 +1,89 @@
+---
+import "../styles/global.css";
+import Button from "./Button.astro";
+---
+
+<section>
+  <div>
+    <img src="/src/assets/images/computer.png" alt="" />
+    <div class="flex">
+      <dl>
+        <div>
+          <dt>Taxes & Efficiency</dt>
+          <dd>Case Name</dd>
+        </div>
+        <div>
+          <dt>Business</dt>
+          <dd>Category</dd>
+        </div>
+        <div>
+          <dt>27th September 2022</dt>
+          <dd>Date</dd>
+        </div>
+      </dl>
+      <Button variant="tertiary" text="Live Preview" />
+    </div>
+  </div>
+</section>
+
+<style>
+  @layer components {
+    section {
+      display: grid;
+      grid-template-columns: minmax(0, 60px) auto minmax(0, 60px);
+      grid-template-rows: 1fr auto auto;
+      margin-block: 5rem;
+
+      & > div {
+        grid-column: 1/-1;
+        grid-row: 1 / -1;
+        display: grid;
+        grid-template-columns: subgrid;
+      }
+
+      img {
+        grid-column: 1/-1;
+        border-radius: 20px;
+      }
+      .flex {
+        text-align: center;
+        background: var(--black);
+        padding: 1.3125rem 1.75rem;
+        border-radius: 1.875rem;
+        grid-column: 2;
+        grid-row: 2/3;
+        margin-top: -5rem;
+      }
+      dl {
+        margin-block: 3rem;
+        text-align: center;
+        display: flex;
+
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3rem;
+
+        > * {
+          display: flex;
+          flex-direction: column-reverse;
+          font-size: 1rem;
+          color: var(--white);
+
+          :last-child {
+            font-size: 1.25rem;
+            font-weight: 500;
+          }
+        }
+      }
+
+      @media (width > 950px) {
+        .flex {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 3.3125rem 3.75rem;
+        }
+      }
+    }
+  }
+</style>

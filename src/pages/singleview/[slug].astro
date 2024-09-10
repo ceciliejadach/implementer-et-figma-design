@@ -17,6 +17,8 @@ const employeeData = await fetch("https://raw.githubusercontent.com/ceciliejadac
 
 import type { ImageMetadata } from "astro";
 import { Image } from "astro:assets";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Icon } from "astro-icon/components";
 
 const { img, name, title, description } = singleviewData;
 
@@ -28,9 +30,127 @@ if (!imageImport) throw new Error(`"${img}" does not exist in glob: "src/assets/
 const image = await imageImport();
 ---
 
-<section>
-  <Image src={image.default} alt={name} />
-  <h2>{singleviewData.name}</h2>
-  <p>{singleviewData.title}</p>
-  <p>{singleviewData.description}</p>
-</section>
+<BaseLayout>
+  <section class="full-bleed">
+    <article>
+      <figure>
+        <Image src={image.default} alt={name} />
+      </figure>
+      <div class="parent">
+        <div>
+          <div class="child-1">
+            <h4>{singleviewData.name}</h4>
+            <!-- <p>{singleviewData.title}</p> -->
+          </div>
+          <div class="child-2">
+            <Icon name="instagram" />
+            <Icon name="facebook" />
+            <Icon name="twitter" />
+            <Icon name="linked-in" />
+          </div>
+        </div>
+        <p>{singleviewData.title}</p>
+        <p>{singleviewData.description}</p>
+        <hr />
+        <div class="child-3">
+          <h4>Past Experience</h4>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui. Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+      </div>
+    </article>
+  </section>
+</BaseLayout>
+
+<style>
+  section {
+    margin-block: 7rem;
+    figure {
+      position: relative;
+      img {
+        width: 100%;
+        border-radius: 25px;
+      }
+
+      &::before {
+        --square-count: 10;
+        --square-size: 1.34rem;
+
+        --_square-size: var(--square-size, 1rem);
+        --_square-half: calc(var(--square-size) / 2);
+        --_square-sum: calc(var(--square-count) * var(--square-size));
+        z-index: -1;
+        content: "";
+        position: absolute;
+        inset: -50px 180px auto auto;
+        inline-size: calc(var(--square-count) * 1.34rem - 0.67rem);
+        inline-size: calc(round(var(--_square-sum), var(--_square-size)) - var(--_square-half));
+        aspect-ratio: 1;
+        background: linear-gradient(135deg, #be965d, #976f40, #c99b61, #f0be7b, #ffcb85, #eebc79, #c0935b, #976f40) 0 0 / 100% 100%;
+        mask:
+          var(--square-pattern) 0 0 / var(--_square-size) var(--_square-size),
+          var(--square-pattern) var(--_square-half) var(--_square-half) / var(--_square-size) var(--_square-size);
+        /* clip-path: polygon(-3% 0%, 100% 0%, 100% 103%); */
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+
+        left: -0.5rem;
+        bottom: 15.5rem;
+        background: green;
+        width: 150px;
+        height: 150px;
+        border-radius: 10px;
+        z-index: -1;
+      }
+    }
+    article {
+      display: grid;
+      gap: 1rem;
+
+      .parent {
+        display: grid;
+        gap: 1rem;
+        & > :first-child {
+          display: grid;
+          grid-template-columns: auto auto;
+
+          .child-2 {
+            display: flex;
+            justify-content: space-evenly;
+            border-left: solid 1px var(--body-text);
+          }
+        }
+      }
+
+      hr {
+        color: var(--body-text);
+        height: 1px;
+        width: 100%;
+      }
+    }
+    [data-icon] {
+      width: 24px;
+      height: 24px;
+      align-self: center;
+    }
+    @media (width > 1000px) {
+      article {
+        grid-template-columns: auto auto;
+        gap: 4rem;
+      }
+
+      figure {
+        &::before {
+          inset: -50px 250px auto auto;
+        }
+        &::after {
+          left: -2rem;
+          bottom: 16rem;
+        }
+      }
+    }
+  }
+</style>

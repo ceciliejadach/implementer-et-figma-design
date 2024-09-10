@@ -4,10 +4,18 @@
   }
 }
 
-h2 {
-  --flow-space: 2em;
+h3 {
+  --flow-space: 4em;
 }
 
-h3 {
+h3 + * {
+  --flow-space: 0.25rlh;
+}
+
+h5 {
+  --flow-space: 1em;
+}
+
+p {
   --flow-space: 1em;
 }
