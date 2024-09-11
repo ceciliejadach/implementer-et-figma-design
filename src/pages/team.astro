@@ -3,13 +3,14 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionImage from "../components/SectionImage.astro";
 import EmployeeSection from "../components/EmployeeSection.astro";
 import SectionMeetTeam from "../components/SectionMeetTeam.astro";
+import HeroTwo from "../assets/images/hero-2.jpg";
 
 const employeeData = await fetch("https://raw.githubusercontent.com/ceciliejadach/frontend-design/main/resources/json/employees.json").then((res) => res.json());
 const employees = employeeData;
 ---
 
 <BaseLayout title="Team">
-  <SectionImage background="src/assets/images/hero-2.jpg" spanText="Team" heading="The Consultors" />
+  <SectionImage background={HeroTwo.src} spanText="Team" heading="The Consultors" />
   <SectionMeetTeam />
   <EmployeeSection data={employees} />
 </BaseLayout>

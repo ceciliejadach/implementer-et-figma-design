@@ -3,10 +3,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import SectionImage from "../components/SectionImage.astro";
 import SectionComputer from "../components/SectionComputer.astro";
 import SectionText from "../components/SectionText.astro";
+import HeroThree from "../assets/images/hero-3.png";
 ---
 
 <BaseLayout title="Team">
-  <SectionImage background="/src/assets/images/hero-3.png" spanText="Case Studies single" heading="Taxes & Efficiency" />
+  <SectionImage background={HeroThree.src} spanText="Case Studies single" heading="Taxes & Efficiency" />
   <SectionComputer />
   <SectionText />
 </BaseLayout>
