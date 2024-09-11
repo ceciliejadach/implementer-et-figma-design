@@ -45,10 +45,17 @@ import Hero from "../assets/images/hero.png";
         grid-template-columns: subgrid;
         background: var(--black);
         align-items: start;
+      }
+
+      & > div:first-child > div {
+        grid-column: 2/ 7;
+        display: grid;
+        gap: 1rem;
+        padding: 2rem 1rem;
         position: relative;
 
         &::before {
-          --square-count: 10;
+          --square-count: 5;
           --square-size: 1rem;
 
           --_square-size: var(--square-size, 1rem);
@@ -71,14 +78,31 @@ import Hero from "../assets/images/hero.png";
           /* rotate: -45deg; */
           z-index: 1;
         }
-      }
 
-      & > div:first-child > div {
-        grid-column: 2/ 7;
-        display: grid;
-        gap: 1rem;
-        padding: 2rem 1rem;
+        &::after {
+          --square-count: 7;
+          --square-size: 1rem;
 
+          --_square-size: var(--square-size, 1rem);
+          --_square-half: calc(var(--square-size) / 2);
+          --_square-sum: calc(var(--square-count) * var(--square-size));
+          z-index: -1;
+          content: "";
+
+          position: absolute;
+          left: -7rem;
+          top: 5rem;
+          transform-origin: 0 0;
+          inline-size: calc(round(var(--_square-sum), var(--_square-size)) - var(--_square-half));
+          aspect-ratio: 0.7;
+          background: linear-gradient(135deg, #be965d, #976f40, #c99b61, #f0be7b, #ffcb85, #eebc79, #c0935b, #976f40) 0 0 / 100% 100%;
+          mask:
+            var(--square-pattern) 0 0 / var(--_square-size) var(--_square-size),
+            var(--square-pattern) var(--_square-half) var(--_square-half) / var(--_square-size) var(--_square-size);
+          /*clip-path: polygon(-3% 0%, 100% 0%, 100% 103%);*/
+          /* rotate: -45deg; */
+          z-index: 1;
+        }
         :last-child {
           color: var(--black);
         }
@@ -173,6 +197,7 @@ import Hero from "../assets/images/hero.png";
             left: -1rem;
             top: 15rem;
           }
+        }
       }
     }
   }

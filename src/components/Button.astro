@@ -47,11 +47,13 @@ const { text, variant, size } = Astro.props;
     .tertiary {
       background: var(--yellow);
       color: var(--black);
-    }
 
-    .tertiary:hover {
-      background: var(--black);
-      color: var(--white);
+      &:hover {
+        background: oklch(from var(--yellow) calc(l - 0.05) c h);
+      }
+      &:active {
+        background: oklch(from var(--yellow) calc(l - 0.1) c h);
+      }
     }
   }
 </style>

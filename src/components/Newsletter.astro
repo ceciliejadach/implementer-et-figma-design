@@ -3,14 +3,16 @@ import Button from "./Button.astro";
 ---
 
 <section class="full-bleed">
-  <div class="wrapper">
-    <div>
-      <h4>Subscribe Our Newsletter</h4>
-      <p>Build stronger Customer Relationships with Consultalk</p>
-    </div>
-    <div class="flex">
-      <input type="email" placeholder="your mail address" />
-      <Button variant="tertiary" text="Subscribe" />
+  <div>
+    <div class="wrapper">
+      <div>
+        <h4>Subscribe Our Newsletter</h4>
+        <p>Build stronger Customer Relationships with Consultalk</p>
+      </div>
+      <div class="flex">
+        <input type="email" placeholder="your mail address" />
+        <Button variant="tertiary" text="Subscribe" />
+      </div>
     </div>
   </div>
 </section>
@@ -34,6 +36,9 @@ import Button from "./Button.astro";
         position: relative;
         isolation: isolate;
         margin-inline: auto;
+        width: 100%;
+        display: grid;
+        gap: 1rem;
 
         &::before {
           --square-count: 12;
@@ -75,14 +80,13 @@ import Button from "./Button.astro";
       }
 
       & > :first-child {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
+        /* display: flex;
+        flex-wrap: wrap; */
+        /* gap: 1rem; */
 
         .flex {
           display: flex;
-          flex-direction: column;
-          gap: 0.5rem;
+          gap: 1rem;
         }
       }
 
@@ -95,15 +99,13 @@ import Button from "./Button.astro";
     }
     @media (width > 800px) {
       section {
-        inline-size: min(1000px, 100% - 1rem);
-
-        & > :first-child {
-          flex-wrap: nowrap;
-          align-items: center;
+        .wrapper {
+          display: flex;
           justify-content: space-between;
+          align-items: center;
 
           .flex {
-            flex-direction: row;
+            align-items: end;
           }
         }
       }
