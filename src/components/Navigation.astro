@@ -2,31 +2,184 @@
 import Button from "./Button.astro";
 ---
 
-<section>
-  <nav class="full-bleed">
-    <h5><a href="/">AskExperts</a></h5>
-    <div>
-      <ul class="desktop-nav">
-        <li><a href="/">Home</a></li>
-        <li><a href="/casestudy">Case Study</a></li>
-        <li><a href="/team">Team</a></li>
-        <li><a href="/about">About</a></li>
-      </ul>
+<section class="full-bleed">
+  <div>
+    <nav>
+      <h5><a href="/">AskExperts</a></h5>
+      <div class="desktop-nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/casestudy">Case Study</a></li>
+          <li><a href="/team">Team</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+      <button popovertarget="popup">Login</button>
+
+      <div class="burger-menu" id="burger-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <div class="mobile-nav" id="mobile-nav">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/casestudy">Case Study</a></li>
+          <li><a href="/team">Team</a></li>
+          <li><a href="/about">About</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div popover id="popup">
+      <h2>Dashboard Login</h2>
+      <form action="popup">
+        <input type="email" placeholder="Enter Email" id="email" />
+        <input type="password" placeholder="Enter Password" id="password" />
+        <Button variant="tertiary" text="Go to dashboard"><input type="submit" /></Button>
+      </form>
     </div>
-    <button popovertarget="popup">Login</button>
-  </nav>
-  <div popover id="popup">
-    <h2>Dashboard Login</h2>
-    <form action="popup">
-      <input type="email" placeholder="Enter Email" id="email" />
-      <input type="password" placeholder="Enter Password" id="password" />
-      <Button variant="tertiary" text="Go to dashboard"><input type="submit" /></Button>
-    </form>
   </div>
 </section>
 
 <style>
   @layer components {
+    section {
+      position: sticky;
+      background: var(--navigation);
+      top: 0;
+      z-index: 10;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+
+      justify-content: space-between;
+      padding: 1.375rem;
+
+      h5 a {
+        text-decoration: none;
+        color: var(--white);
+      }
+      ul {
+        display: flex;
+      }
+
+      ul li {
+        list-style: none;
+      }
+
+      ul li a {
+        text-decoration: none;
+        color: var(--white);
+        padding-right: 30px;
+      }
+
+      button {
+        padding: 4px 16px;
+        border-radius: 20px;
+        transition:
+          background-color 0.2s,
+          color 0.2s;
+        font-size: var(--body);
+        outline: none;
+        border: none;
+        cursor: pointer;
+        white-space: nowrap;
+        background: var(--yellow);
+        color: var(--black);
+
+        &:hover {
+          background: oklch(from #ffcc4a calc(l - 0.05) c h);
+        }
+        &:active {
+          background: oklch(from #ffcc4a calc(l - 0.1) c h);
+        }
+      }
+    }
+
+    /* Burgermenu styling */
+    .burger-menu {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+
+      span {
+        width: 100%;
+        height: 3px;
+        background-color: var(--white);
+        transition: 0.3s;
+        border-radius: 10px;
+      }
+    }
+
+    /* Mobilnavigation styling */
+    .mobile-nav {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--black);
+      opacity: 95%;
+      border-radius: 0 0 20px 20px;
+      width: 100%;
+      align-items: center;
+      height: 100vh;
+
+      z-index: 20;
+      transition: 0.2s;
+    }
+
+    .mobile-nav ul {
+      list-style: none;
+      display: grid;
+      padding: 1rem;
+    }
+
+    .mobile-nav ul li {
+      margin-bottom: 20px;
+    }
+
+    .mobile-nav ul li a {
+      color: var(--white);
+      font-size: 1.5rem;
+      border-bottom: 1px solid var(--white);
+    }
+
+    /* Burger-menu åben tilstand */
+    .burger-menu.open .bar:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 4px);
+    }
+
+    .burger-menu.open .bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .burger-menu.open .bar:nth-child(3) {
+      transform: rotate(-45deg) translate(9px, -6px);
+    }
+
+    /* Vis mobil navigation når burgermenu er aktiv */
+    .mobile-nav.open {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Skjul desktop navigation på små skærme */
+    @media (width < 768px) {
+      .desktop-nav {
+        display: none;
+      }
+
+      .burger-menu {
+        display: flex;
+      }
+    }
+
     [popover] {
       opacity: 0;
       translate: 0 -100%;
@@ -78,72 +231,15 @@ import Button from "./Button.astro";
       opacity: 50%;
       backdrop-filter: blur(4px);
     }
-
-    section {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      background: var(--navigation);
-      justify-content: space-evenly;
-      padding: 1.375rem;
-
-      h5 a {
-        text-decoration: none;
-        color: var(--white);
-      }
-      ul {
-        display: flex;
-      }
-
-      ul li {
-        list-style: none;
-      }
-
-      ul li a {
-        text-decoration: none;
-        color: var(--white);
-        padding-right: 30px;
-      }
-
-      button {
-        padding: 4px 16px;
-        border-radius: 20px;
-        transition:
-          background-color 0.2s,
-          color 0.2s;
-        font-size: var(--body);
-        outline: none;
-        border: none;
-        cursor: pointer;
-        white-space: nowrap;
-        background: var(--yellow);
-        color: var(--black);
-
-        &:hover {
-          background: oklch(from #ffcc4a calc(l - 0.05) c h);
-        }
-        &:active {
-          background: oklch(from #ffcc4a calc(l - 0.1) c h);
-        }
-      }
-    }
-    #mobile-nav {
-      display: none;
-    }
-
-    @media (width < 610px) {
-      .desktop-nav {
-        display: none;
-      }
-
-      [popover] {
-        padding: 1.5rem;
-      }
-    }
   }
 </style>
+
+<script>
+  const burgerMenu = document.getElementById("burger-menu");
+  const mobileNav = document.getElementById("mobile-nav");
+
+  burgerMenu.addEventListener("click", () => {
+    burgerMenu.classList.toggle("open");
+    mobileNav.classList.toggle("open");
+  });
+</script>

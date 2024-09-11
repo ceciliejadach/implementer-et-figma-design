@@ -26,6 +26,9 @@
 <style>
   @layer components {
     section {
+      animation: --grow linear both;
+      animation-timeline: view();
+      animation-range: entry 100% contain 50%;
       dl {
         margin-block: 3rem;
         text-align: center;
@@ -46,6 +49,21 @@
             font-weight: 500;
           }
         }
+      }
+    }
+    @keyframes --grow {
+      /* from {
+        rotate: 180deg;
+        opacity: 0;
+      } */
+
+      from {
+        transform: translateX(-100vw); /* Starter uden for skærmen til venstre */
+        opacity: 0; /* Usynlig ved start */
+      }
+      to {
+        transform: translateX(0); /* Ender i midten af skærmen uden rotation */
+        opacity: 1; /* Fuldt synlig ved slut */
       }
     }
   }
