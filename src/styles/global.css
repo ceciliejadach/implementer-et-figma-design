@@ -43,6 +43,7 @@
   h4,
   h5 {
     font-family: "cabin";
+    font-weight: 700;
   }
   h1 {
     font-size: var(--fluid-30-50);

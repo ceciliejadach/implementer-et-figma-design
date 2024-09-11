@@ -1,13 +1,15 @@
 ---
-import "../styles/global.css";
+import GalleryBig from "../assets/images/gallery-big.jpg";
+import GallerySmallOne from "../assets/images/gallery-small-1.jpg";
+import GallerySmallTwo from "../assets/images/gallery-small-2.jpg";
 ---
 
 <section>
   <figure>
-    <img src="/src/assets/images/gallery-big.jpg" alt="" />
+    <img src={GalleryBig.src} alt="" />
     <div>
-      <img src="/src/assets/images/gallery-small-1.jpg" alt="" />
-      <img src="/src/assets/images/gallery-small-2.jpg" alt="" />
+      <img src={GallerySmallOne.src} alt="" />
+      <img src={GallerySmallTwo.src} alt="" />
     </div>
   </figure>
 </section>

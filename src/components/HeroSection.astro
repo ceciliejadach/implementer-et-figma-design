@@ -1,33 +1,31 @@
 ---
-import "../styles/global.css";
 import Button from "./Button.astro";
-
-import { Icon } from "astro-icon/components";
+import Hero from "../assets/images/hero.png";
 ---
 
 <section class="break-out-content full-bleed">
   <div class="background-container">
     <div class="text-content">
       <h1>Adam Buschemia <br /> Business Consultant</h1>
-      <p>Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling.</p>
+      <p class="col-wh">Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling.</p>
       <Button variant="secondary" text="Book a meeting" />
     </div>
-    <img src="/src/assets/images/hero.png" alt="" />
+    <img src={Hero.src} alt="" />
   </div>
   <div class="boxes">
     <div>
       <h6>Finance & Restructuring</h6>
-      <p>Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling.</p>
+      <p class="col-wh">Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling.</p>
       <Button variant="primary" text="Our Services" />
     </div>
     <div>
       <h6>Our Approach</h6>
-      <p>Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling.</p>
+      <p class="col-wh">Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling.</p>
       <Button variant="primary" text="More About" />
     </div>
     <div>
       <h6>Consultalk Result</h6>
-      <p>Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling.</p>
+      <p class="col-wh">Get help from Alex Moore, a professional business coach with advanced experience on growth and business scaling.</p>
       <Button variant="primary" text="Explore Our Solution" />
     </div>
   </div>
@@ -47,6 +45,32 @@ import { Icon } from "astro-icon/components";
         grid-template-columns: subgrid;
         background: var(--black);
         align-items: start;
+        position: relative;
+
+        &::before {
+          --square-count: 10;
+          --square-size: 1rem;
+
+          --_square-size: var(--square-size, 1rem);
+          --_square-half: calc(var(--square-size) / 2);
+          --_square-sum: calc(var(--square-count) * var(--square-size));
+          z-index: -1;
+          content: "";
+
+          position: absolute;
+          right: 0;
+          top: 0;
+          transform-origin: 0 0;
+          inline-size: calc(round(var(--_square-sum), var(--_square-size)) - var(--_square-half));
+          aspect-ratio: 0.7;
+          background: linear-gradient(135deg, #be965d, #976f40, #c99b61, #f0be7b, #ffcb85, #eebc79, #c0935b, #976f40) 0 0 / 100% 100%;
+          mask:
+            var(--square-pattern) 0 0 / var(--_square-size) var(--_square-size),
+            var(--square-pattern) var(--_square-half) var(--_square-half) / var(--_square-size) var(--_square-size);
+          /*clip-path: polygon(-3% 0%, 100% 0%, 100% 103%);*/
+          /* rotate: -45deg; */
+          z-index: 1;
+        }
       }
 
       & > div:first-child > div {
@@ -63,14 +87,10 @@ import { Icon } from "astro-icon/components";
       & > div:first-child > img {
         grid-column: 7 / -1;
         grid-row: 1 / 3;
-        /* width: 100%;
-        height: auto;
-        object-fit: cover; */
       }
 
       & > div:last-child {
         grid-column: 2 / -2;
-        /* grid-row: 3 / -1; */
         display: grid;
         grid-template-columns: inherit;
         align-self: end;
@@ -92,7 +112,7 @@ import { Icon } from "astro-icon/components";
 
       h1,
       h6,
-      p {
+      .col-wh {
         color: var(--white);
       }
     }
@@ -147,6 +167,12 @@ import { Icon } from "astro-icon/components";
         & > div:last-child > div {
           grid-column: span 12;
         }
+
+        & > div:first-child {
+          &::before {
+            left: -1rem;
+            top: 15rem;
+          }
       }
     }
   }
