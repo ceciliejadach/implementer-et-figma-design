@@ -26,7 +26,8 @@
 <style>
   @layer components {
     section {
-      animation: --grow linear both;
+      padding: 0 0 4rem;
+      animation: --slide linear both;
       animation-timeline: view();
       animation-range: entry 100% contain 50%;
       dl {
@@ -51,19 +52,14 @@
         }
       }
     }
-    @keyframes --grow {
-      /* from {
-        rotate: 180deg;
-        opacity: 0;
-      } */
-
+    @keyframes --slide {
       from {
-        transform: translateX(-100vw); /* Starter uden for skærmen til venstre */
-        opacity: 0; /* Usynlig ved start */
+        transform: translateX(-100vw);
+        opacity: 0;
       }
       to {
-        transform: translateX(0); /* Ender i midten af skærmen uden rotation */
-        opacity: 1; /* Fuldt synlig ved slut */
+        transform: translateX(0);
+        opacity: 1;
       }
     }
   }

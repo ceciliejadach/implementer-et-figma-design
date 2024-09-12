@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HeroSection from "../components/HeroSection.astro";
 import SectionScroll from "../components/SectionScroll.astro";
@@ -8,11 +7,7 @@ import SectionDarkLight from "../components/SectionDarkLight.astro";
 import SectionGallery from "../components/SectionGallery.astro";
 import SectionWhatToExpect from "../components/SectionWhatToExpect.astro";
 
-import { ViewTransitions } from "astro:transitions";
-
 const employeeData = await fetch("https://raw.githubusercontent.com/ceciliejadach/frontend-design/main/resources/json/employees.json").then((res) => res.json());
-
-// const firstThreeEmployees = employeeData.slice(0, 3);
 ---
 
 <BaseLayout title="Home">
