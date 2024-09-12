@@ -23,12 +23,15 @@ const { background, spanText, heading } = Astro.props;
 
     .content-wrapper {
       background: rgba(255, 255, 255, 0.85);
-      color: var(--black);
       padding: min(2rem, 5%);
       width: fit-content;
       border-radius: 1.8125rem;
       backdrop-filter: blur(5.5px);
       align-self: center;
+
+      h1 {
+        max-width: 600px;
+      }
 
       span {
         background: var(--yellow);
